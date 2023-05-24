@@ -9,7 +9,7 @@ export class OrderService {
     return businessCustomerRecordRepository.save(orderData);
     }
 
-    async getOrders(filterParams: object) {
+    async getOrders(filterParams: object): Promise<Order[]> {
         const orders = await AppDataSource.manager.find(
             Order,
             {

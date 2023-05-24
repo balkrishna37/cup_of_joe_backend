@@ -18,7 +18,7 @@ export class ItemService {
         return itemExists;
     }
 
-    async getItems(filterParams: object) {
+    async getItems(filterParams: object): Promise<Item[]> {
         const items = await AppDataSource.manager.find(
             Item,
             {
