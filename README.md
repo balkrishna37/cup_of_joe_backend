@@ -11,6 +11,14 @@ Run `npm run build` first to build.
 
 Run `npm run dev` to start the server
 
+Run `npm run test` to test.
+
 The below doc url contains the list of available APIs:
-https://documenter.getpostman.com/view/25644379/2s93m1ajPg
+https://documenter.getpostman.com/view/25644379/2s93m4Yie5
+
+Instruction:
+1. Create a new user first with help of register API (both admin and normal user)
+2. Create a new item i.e coffee
+3. Create a new order
+4. Completing above, we can finally fetch the orders from orders API
 ```

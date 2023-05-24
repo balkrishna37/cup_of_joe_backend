@@ -3,6 +3,7 @@ import { User } from "../entity/user.entity";
 import { Token } from "../entity/token.entity";
 import { Item } from "../entity/item.entity";
 import { Order } from "../entity/order.entity";
+require("dotenv").config();
 
 export const AppDataSource = new DataSource({
     type: "mysql",
