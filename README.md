@@ -1,5 +1,5 @@
 # board-test
-This is a backend for the board app based on Express and Typescript.
+This is a backend for the Cup of Joe app based on Express and Typescript.
 
 ## Setup
 
@@ -21,4 +21,8 @@ Instruction:
 2. Create a new item i.e coffee
 3. Create a new order
 4. Completing above, we can finally fetch the orders from orders API
+
+Note:
+Due to the lack of time, proper test standard wasn't followed. i.e Mockup funcions and mockup database.
+Sorry for the inconvenience.
 ```
