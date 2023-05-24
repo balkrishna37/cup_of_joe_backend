@@ -26,9 +26,13 @@ export class UserService {
     }
 
     public async getUserIdByJwt(jwtToken: string): Promise<Token[]> {
-        const user = await AppDataSource.manager.findBy(Token, {
-            token: jwtToken,
-        });
+        const user = await AppDataSource.manager.find(Token, {
+            where: {
+                token: jwtToken,
+            },
+            relations: ["user"]
+        }
+        );
 
         return user;
     }

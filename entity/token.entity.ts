@@ -3,9 +3,12 @@ import {
     Column,
     CreateDateColumn,
     Entity,
+    JoinColumn,
+    ManyToOne,
     PrimaryGeneratedColumn,
     UpdateDateColumn,
 } from "typeorm";
+import { User } from "./user.entity";
 
 @Entity("tokens")
 export class Token {
@@ -23,4 +26,8 @@ export class Token {
 
     @UpdateDateColumn()
     updated_at!: Date;
+
+    @ManyToOne(() => User, (user) => user.tokens)
+    @JoinColumn({ name: "user_id" })
+    user!: User;
 }

@@ -1,6 +1,8 @@
 import { DataSource } from "typeorm";
 import { User } from "../entity/user.entity";
 import { Token } from "../entity/token.entity";
+import { Item } from "../entity/item.entity";
+import { Order } from "../entity/order.entity";
 
 export const AppDataSource = new DataSource({
     type: "mysql",
@@ -12,7 +14,9 @@ export const AppDataSource = new DataSource({
     entities: [
         __dirname + "../entity/*.{js,ts}",
         User,
-        Token
+        Token,
+        Item,
+        Order
     ],
     subscribers: [],
     migrations: [],

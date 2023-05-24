@@ -7,23 +7,24 @@ import {
     PrimaryGeneratedColumn,
     UpdateDateColumn,
 } from "typeorm";
+import { Token } from "./token.entity";
 
 @Entity("users")
 export class User extends BaseEntity {
-    @PrimaryGeneratedColumn("uuid")
-    id!: string;
+    @PrimaryGeneratedColumn()
+    id!: number;
 
     @Column({
         type: "text",
-        nullable: true,
+        nullable: false,
     })
-    name?: string;
+    name!: string;
 
     @Column({
         type: "text",
-        nullable: true,
+        nullable: false,
     })
-    email?: string;
+    email!: string;
 
     @Column({
         type: "text",
@@ -31,6 +32,11 @@ export class User extends BaseEntity {
         select: false,
     })
     password!: string;
+
+    @Column({
+        default: false
+    })
+    is_admin!: boolean;
 
     @CreateDateColumn({
         type: "timestamp",
@@ -43,4 +49,7 @@ export class User extends BaseEntity {
         default: () => "CURRENT_TIMESTAMP(6)",
     })
     updated_at?: Date;
+
+    @OneToMany(() => Token, (token) => token.user_id)
+    tokens!: Token;
 }

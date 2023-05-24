@@ -6,6 +6,7 @@ export class UserController {
     public static async registerUser(req: Request, res: Response) {
         try {
             const data = req.body;
+            const query: any = req.query;
             const userService = new UserService();
             const userExists = await userService.checkifUserExists(data.email);
             if (userExists) {
@@ -21,6 +22,9 @@ export class UserController {
                 email: data.email,
                 password: hashedPassword
             };
+            if(query.isAdmin=="true") {
+                userData.is_admin = true
+            }
             const createUser = await userService.create(userData);
             return res.send({
                 message: "User registered Successfully",
