@@ -53,4 +53,45 @@ export class ItemController {
             });
         }
     }
+
+    public static async urlShortener(req: Request, res: Response) {
+        try {
+            const body = req.body;
+            const itemService = new ItemService();
+            const shortenedUrl = await itemService.shortenUrl(body.url);
+            return res.status(200).send({
+                status: "success",
+                data: shortenedUrl
+            })
+            
+        } catch (error) {
+            console.error(error);
+            return res.status(500).send({
+                status: "error",
+                error: ["Internal Server"],
+            });
+        }
+    }
+
+    public static async urlRedirect(req: Request, res: Response) {
+        try {
+            const urlId = req.params.alias;
+            const itemService = new ItemService();
+            const urlIdExists: any = await itemService.checkIfUrlIdExists(urlId);
+            if(urlIdExists.length == 0) {
+                return res.status(400).send({
+                    status: "error",
+                    "message": "Url not found"
+                })
+            }
+            return res.redirect(`${urlIdExists[0].long_url}`);
+            
+        } catch (error) {
+            console.error(error);
+            return res.status(500).send({
+                status: "error",
+                error: ["Internal Server"],
+            });
+        }
+    }
 }

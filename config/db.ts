@@ -3,6 +3,7 @@ import { User } from "../entity/user.entity";
 import { Token } from "../entity/token.entity";
 import { Item } from "../entity/item.entity";
 import { Order } from "../entity/order.entity";
+import { Url } from "../entity/url.entity";
 require("dotenv").config();
 
 export const AppDataSource = new DataSource({
@@ -17,7 +18,8 @@ export const AppDataSource = new DataSource({
         User,
         Token,
         Item,
-        Order
+        Order,
+        Url
     ],
     subscribers: [],
     migrations: [],

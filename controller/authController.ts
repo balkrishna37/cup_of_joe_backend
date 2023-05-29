@@ -33,7 +33,7 @@ export class AuthController {
             }
             const jwtKey: string = process.env.JWT_KEY!;
             const token = jwt.sign({ phone: reqData.email }, jwtKey);
-            let saveToken = new Token();
+            let saveToken: any = new Token();
             saveToken.user_id = userExists.id;
             saveToken.token = token;
             await AppDataSource.manager.save(saveToken);
