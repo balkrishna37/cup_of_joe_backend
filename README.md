@@ -14,7 +14,7 @@ Run `npm run dev` to start the server
 Run `npm run test` to test.
 
 NEW UPDATES:
-URL shortener sevice has been added. Please update .env file as shown on .env.example
+URL shortener sevice has been added. Please run `npm i` and update .env file as shown on .env.example
 
 The below doc url contains the list of available APIs:
 https://documenter.getpostman.com/view/25644379/2s93m4Yie5
